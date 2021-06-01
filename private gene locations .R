@@ -47,3 +47,16 @@ ref.df$private=vec
 
 ##sort the start position 
 ref.df$start<-sort(ref.df$start)
+
+###making a circos plot 
+circos.clear()
+plot.new()
+circle_size = unit(1, "snpc") # snpc unit gives you a square region
+pushViewport(viewport(x = 0,
+                      y = 0,
+                      width = circle_size,
+                      height = circle_size,
+                      just = c("center", "top")))
+par(new = TRUE)
+circos.par("start.degree" = 90, "track.margin" = c(0,0))
+circos.genomicInitialize(ref.df)
